@@ -39,6 +39,6 @@ Final result with the password redacted:
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD_HERE`
+`Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3`
 
 </details>
