@@ -20,6 +20,6 @@ The password for the next level is stored in a hidden file inside the `inhere` d
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD_HERE`
+`xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq`
 
 </details>
