@@ -2,10 +2,18 @@
 
 ## Task
 
-The password for the next level is stored in a file called `readme` located in the home directory.
+The password for the next level is stored in a file called `readme`.
 
 ## Commands Used
 
-```bash
-ls
-cat readme
+- `ls` — lists files and directories in the current directory.
+- `cat readme` — displays the contents of the `readme` file.
+
+## Password
+
+<details>
+<summary>Click to reveal</summary>
+
+`PASSWORD_HERE`
+
+</details>
