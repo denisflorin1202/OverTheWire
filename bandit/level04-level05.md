@@ -21,6 +21,6 @@ The password for the next level is stored in the only human-readable file inside
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD_HERE`
+`6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG`
 
 </details>
