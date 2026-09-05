@@ -24,6 +24,6 @@ The password for the next level is stored in the file `data.txt` next to the wor
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD_HERE`
+`VR1ljMayciFxbnUokuQmJFw6QC9VKtub`
 
 </details>
