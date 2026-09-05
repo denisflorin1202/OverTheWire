@@ -7,7 +7,11 @@ The password for the next level is stored in a file called `--spaces in this fil
 ## Commands Used
 
 - `ls -la` — lists all files, including hidden files, in a detailed format.
-- `cat "./--spaces in this filename--"` — displays the contents of the file. The quotes keep the filename with spaces as a single argument, while `./` specifies that the file is located in the current directory.
+- `cat "./--spaces in this filename--"` — displays the file contents. `./` refers to the current directory, while the quotes keep the filename with spaces as a single argument.
+
+### Alternative
+
+- `cat -- "--spaces in this filename--"` — also works. `--` tells `cat` to stop interpreting following arguments as options.
 
 ## Screenshot
 
