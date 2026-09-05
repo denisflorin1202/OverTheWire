@@ -14,6 +14,6 @@ The password for the next level is stored in a file called `readme`.
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD_HERE`
+`6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR`
 
 </details>
