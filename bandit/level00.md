@@ -12,13 +12,13 @@ The password for the next level is stored in a file called `readme`.
 
 ## Screenshot
 
-![Bandit Level 00 → 01](screenshots/bandit-level00.png)
+![Bandit Level 00 → 01](screenshots/level00.png)
 
 ## Password
 
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD_HERE`
+`6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR`
 
 </details>
