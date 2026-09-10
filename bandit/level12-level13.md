@@ -2,11 +2,11 @@
 
 ## Task
 
-The password for the next level is stored in `data.txt`.
+The password for the next level is stored in `data.txt`, which is a **hexdump of a file that has been repeatedly compressed**.
 
-The file contains a **hexdump** of a file that has been compressed multiple times using different compression and archive formats.
+For this level, a temporary working directory under `/tmp` is useful. The command `mktemp -d` can be used to create one with a hard-to-guess name.
 
-Because the home directory is not writable, I created a temporary working directory inside `/tmp`.
+The `data.txt` file is then copied into the temporary directory using `cp`, where the different compression layers can be analyzed and extracted.
 
 ## Commands Used
 
