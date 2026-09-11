@@ -4,16 +4,18 @@
 
 The password for the next level is stored in `/etc/bandit_pass/bandit14` and can only be read by user `bandit14`.
 
-Instead of receiving the password directly, this level provides a **private SSH key** that can be used to log in as `bandit14`.
+For this level, the password is not provided directly. Instead, a private SSH key is available and can be used to log into the next level.
+
+A hint file is also available in the home directory, and the error messages provide useful information when troubleshooting the connection.
 
 ## Commands Used
 
-- `ls -la` — lists all files in the current directory, including hidden files and permissions.
+- `ls -la` — lists all files, including hidden files, together with their permissions.
 - `cat HINT` — displays the hint provided for the level.
-- `cat sshkey.private` — displays the private SSH key.
-- `ssh -i <key> user@host -p <port>` — connects through SSH using a private key instead of a password.
-- `exit` — closes the current SSH session.
-- `scp` — securely copies files between a local machine and a remote system through SSH.
+- `cat sshkey.private` — displays the provided OpenSSH private key.
+- `ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220` — connects to `bandit14` using the private SSH key.
+- `exit` — closes the current SSH session and returns to the local machine.
+- `scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .` — downloads the private SSH key from the Bandit server to the current directory on the local machine.
 
 ## Command Breakdown
 
