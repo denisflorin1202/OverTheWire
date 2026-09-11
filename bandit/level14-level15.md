@@ -37,6 +37,7 @@ I submitted the current `bandit14` password to the service, and the server respo
 
 ```text
 Correct!
+```
 
 followed by the password for the next level.
 
