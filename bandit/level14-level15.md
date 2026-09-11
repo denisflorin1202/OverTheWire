@@ -37,6 +37,7 @@ I submitted the current `bandit14` password:
 
 ```text
 [REDACTED]
+```
 
 The service responded with:
 
