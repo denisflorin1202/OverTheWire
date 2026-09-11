@@ -36,8 +36,7 @@ After the connection was established, the service waited for input.
 I submitted the current `bandit14` password:
 
 ```text
-aaWecNkG4FhxJQxz07uiwzVP6bJiYS65
-```
+[REDACTED]
 
 The service responded with:
 
