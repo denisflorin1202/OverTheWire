@@ -33,17 +33,10 @@ localhost → the current machine
 
 After the connection was established, the service waited for input.
 
-I submitted the current `bandit14` password:
-
-```text
-[REDACTED]
-```
-
-The service responded with:
+I submitted the current `bandit14` password to the service, and the server responded with:
 
 ```text
 Correct!
-```
 
 followed by the password for the next level.
 
