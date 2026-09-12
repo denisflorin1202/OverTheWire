@@ -2,9 +2,13 @@
 
 ## Task
 
-The goal of this level was to retrieve the credentials for the next level by submitting the current `bandit16` password to the correct service running on `localhost`.
+The credentials for the next level can be retrieved by submitting the password of the current level to **a port on localhost in the range 31000 to 32000**.
 
-The service was located somewhere in the port range `31000-32000`. First, I had to identify which ports were open and determine which of them were using SSL/TLS.
+First, find out which of these ports have a server listening on them. Then determine which of those servers speak SSL/TLS and which do not.
+
+There is only **one server** that will provide the credentials for the next level. The others will simply send back whatever is sent to them.
+
+> **Helpful note:** Getting `DONE`, `RENEGOTIATING`, or `KEYUPDATE`? Read the **CONNECTED COMMANDS** section in the `openssl s_client` manpage.
 
 ## Commands Used
 
