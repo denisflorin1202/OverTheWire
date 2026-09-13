@@ -24,7 +24,7 @@ The password for the next level is stored somewhere on the server and has the fo
 
 Without `2>/dev/null`, the command produces many `Permission denied` messages, as shown below:
 
-![Permission denied output](screenshots/level06-level072.png)
+![Permission denied output](screenshots/level06-level07_1.png)
 
 Using `2>/dev/null` keeps the output clean and makes the matching file easier to identify.
 
@@ -32,7 +32,7 @@ Using `2>/dev/null` keeps the output clean and makes the matching file easier to
 
 Final result with the password redacted:
 
-![Bandit Level 06 → 07](screenshots/level06-level07.png)
+![Bandit Level 06 → 07](screenshots/level06-level07_2.png)
 
 ## Password
 
