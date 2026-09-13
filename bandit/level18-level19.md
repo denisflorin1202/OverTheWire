@@ -43,6 +43,6 @@ This connects to the server, executes `cat readme`, returns the output, and then
 <details>
 <summary>Click to reveal</summary>
 
-`Kps0fPRcP7i1FLIExk2QEjyT6dW8dxZI`
+`KpsOfPkcP7i1FlIExk2QEjyt6dw8dxZI`
 
 </details>
