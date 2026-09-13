@@ -14,7 +14,6 @@ The script used in this level is intentionally easy to read. If necessary, it ca
 - `cat` — displays the contents of a file.
 - `echo` — outputs text and adds a newline by default.
 - `md5sum` — calculates the MD5 hash of input.
-- `cut` — extracts specific fields from text.
 
 ## Command Breakdown
 
