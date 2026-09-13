@@ -43,6 +43,7 @@ After identifying the changed password, I exited the `bandit17` SSH session.
 <details>
 <summary>Click to reveal</summary>
 
-`OQxXZjELndr9Ozuh0TDYBEomI0SZITXI`
+`OQxXZjELndr90zuhOTDYBEomI0SZITXI`
+
 
 </details>
