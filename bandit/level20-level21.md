@@ -57,6 +57,6 @@ The password for `bandit21` was then sent back through the same connection and a
 <details>
 <summary>Click to reveal</summary>
 
-`PASSWORD`
+`bW9kBv5WC3P4yoDyf12LSdGuNz5ka6hY`
 
 </details>
