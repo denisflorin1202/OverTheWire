@@ -14,10 +14,10 @@ The program reads one line from that connection and compares it with the passwor
 
 ## Command Breakdown
 
-First, I created a listener on port `44444` and piped the current password into it:
+First, I created a listener on port `4444` and piped the current password into it:
 
 ```bash
-cat /etc/bandit_pass/bandit20 | nc -l 44444
+cat /etc/bandit_pass/bandit20 | nc -l 4444
 ```
 
 This means:
@@ -27,7 +27,7 @@ cat password
      ↓
 pipe |
      ↓
-nc listener on port 44444
+nc listener on port 4444
 ```
 
 The listener waits for another program to connect and sends the `bandit20` password through that connection.
@@ -37,7 +37,7 @@ The listener waits for another program to connect and sends the `bandit20` passw
 In another terminal, I ran the setuid binary and told it to connect to the same port:
 
 ```bash
-./suconnect 44444
+./suconnect 4444
 ```
 
 `suconnect` connected to the Netcat listener, read the password, compared it with the correct `bandit20` password, and confirmed:
