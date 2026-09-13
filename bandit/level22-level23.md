@@ -2,9 +2,11 @@
 
 ## Task
 
-Another program is being executed automatically using `cron`.
+A program is running automatically at regular intervals using `cron`, the time-based job scheduler.
 
-The goal was to inspect the cron configuration for `bandit23`, understand how the script generates the name of a file in `/tmp`, and locate the password for the next level.
+The goal is to inspect `/etc/cron.d/`, identify the configuration related to `bandit23`, and determine what command is being executed.
+
+The script used in this level is intentionally easy to read. If necessary, it can also be executed manually to observe the debug information it prints and better understand how it works.
 
 ## Commands Used
 
